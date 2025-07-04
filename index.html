@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tríade da Inovação</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -10,11 +10,11 @@
 
   <!-- Cabeçalho -->
   <header class="cabecalho">
-    <img src="logo-triade.png" alt="Logo Tríade" class="logo" />
+    <img src="logo-principal.jpg" alt="Logo Tríade" class="logo" />
     <nav>
       <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="materiais.html">Materiais</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Materiais</a></li>
         <li><a href="#">Contato</a></li>
       </ul>
     </nav>
@@ -22,35 +22,100 @@
 
   <!-- Banner -->
   <section class="banner">
+    <div class="banner-imgs">
+      <img src="banner-principal.jpg" alt="Banner principal" />
+    </div>
     <h1>Tríade da Inovação</h1>
     <p>Mais Ciência, Meninas Digitais e Engenharias na Criação de Brinquedos Científicos</p>
-    <div class="banner-imgs">
-      <img src="banner-principal.png" alt="Banner Principal" />
-      <img src="logo-uri.png" alt="Logo URI" />
-      <img src="logo-projeto.png" alt="Logo projeto" />
-    </div>
   </section>
 
   <!-- Apresentação -->
   <section class="apresentacao">
-    <h2>BREVE APRESENTAÇÃO DO PROJETO</h2>
+    <h2>O que é o Tríade da Inovação?</h2>
     <p>
       O Tríade da Inovação é uma iniciativa educacional que busca estimular o interesse por ciência e tecnologia através da criação de brinquedos científicos.
+      Com foco em estudantes, especialmente meninas, o projeto combina criatividade, eletrônica e programação para promover uma aprendizagem prática e divertida.
     </p>
 
     <h3>Você vai aprender sobre:</h3>
     <ul>
-      <li>Componente 1</li>
-      <li>Componente 2</li>
-      <li>Componente 3</li>
-      <li>Componente 4</li>
-      <li>Componente 5</li>
-      <li>Componente 6</li>
-      <li>Componente 7</li>
+      <li>Sistemas Robóticos Educacionais</li>
+      <li>Fundamentos de Eletrônica Aplicada</li>
+      <li>Tecnologias de Sensoriamento</li>
+      <li>Plataformas de Protótipos Avançados</li>
+      <li>Microcontroladores e Sistemas de Alimentação Integrada</li>
     </ul>
-
-    <a href="materiais.html" class="botao-materiais">VER MATERIAIS</a>
   </section>
 
+  <!-- Materiais -->
+  <section id="materiais">
+    <h1 class="titulo-material">Materiais</h1>
+    <h3 class="titulo-secao">Robótica educacional</h3>
+
+    <div class="cards-container">
+
+      <!-- CARD 1 -->
+      <div class="card">
+        <div class="imagem-material" style="background-image: url('materiais/arduino-imagem.png');"></div>
+        <p><strong>Arduino Uno:</strong> Plataforma de prototipagem eletrônica ideal para iniciantes.</p>
+        <a href="materiais/componente-a.html" class="botao-detalhes">Mais detalhes</a>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="card">
+        <div class="imagem-material"></div>
+        <p><strong>Material 2</strong> breve descrição</p>
+        <a href="materiais/componente-b.html" class="botao-detalhes">Mais detalhes</a>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="card">
+        <div class="imagem-material"></div>
+        <p><strong>Material 3</strong> breve descrição</p>
+        <a href="materiais/componente-c.html" class="botao-detalhes">Mais detalhes</a>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="card">
+        <div class="imagem-material"></div>
+        <p><strong>Material 4</strong> breve descrição</p>
+        <a href="materiais/componente-d.html" class="botao-detalhes">Mais detalhes</a>
+      </div>
+  </section>
+
+  <!-- Seção de Vídeo Explicativo -->
+  <section class="secao-video">
+    <h2 class="titulo-video">Orientações para Aproveitamento dos Materiais Didáticos</h2>
+    <p class="texto-video">
+    Desenvolvemos um brinquedo científico com o objetivo de demonstrar, de forma clara e orientada, os procedimentos de montagem e aplicação dos conceitos envolvidos. 
+    O vídeo a seguir apresenta o passo a passo do projeto, acompanhado de materiais complementares que oferecem suporte adicional.
+    </p>
+
+    <div class="video-container">
+      VÍDEO
+     <!-- Substitua por um <iframe> real, se desejar -->
+    </div>
+
+    <a href="materiais_video.html" class="botao-video">📁 Acessar Materiais do Vídeo</a>
+
+    <p class="texto-video-extra">
+      💡 Agora que você já sabe como funciona, que tal explorar os conteúdos e dar o primeiro passo?
+    </p>
+  </section>
+
+  <!-- Página de detalhes, oculta inicialmente -->
+  <section id="pagina-detalhes" style="display:none; padding: 2rem; background: #f0f8ff; color: #000;">
+    <button onclick="voltarPagina()" style="margin-bottom: 1rem; padding: 0.5rem 1rem; cursor:pointer;">← Voltar</button>
+    <div id="conteudo-pagina-detalhes"></div>
+  </section>
+
+
+  <!-- Modal detalhes -->
+  <div id="detalhes-material">
+    <button onclick="fecharDetalhes()" aria-label="Fechar detalhes">✖</button>
+    <div id="conteudo-detalhes"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

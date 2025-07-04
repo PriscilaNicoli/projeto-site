@@ -2,20 +2,198 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Detalhes do Arduino</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino - Introdução</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    .pagina-material {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      padding: 2rem;
+      gap: 2rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .imagem-material {
+      flex: 1;
+      max-width: 600px;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      background-image: url('arduino-imagem.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #ddd;
+    }
+
+    .info-material {
+      flex: 1;
+      max-width: 600px;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    .info-material h1 {
+      color: #1a3b6b;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .info-material h2 {
+      font-size: 1.4rem;
+      color: #007acc;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-material p, .info-material li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .info-material ul {
+      margin-left: 1.5rem;
+      list-style-type: disc;
+    }
+
+    .info-material a {
+      display: inline-block;
+      margin: 0.4rem 1rem 0.4rem 0;
+      padding: 0.7rem 1.2rem;
+      background-color: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .info-material a:hover {
+      background-color: #005fa3;
+    }
+
+    .info-material a:last-of-type {
+      margin-top: 1.5rem;
+      background-color: transparent;
+      color: #007acc;
+    }
+
+    .info-material a:last-of-type:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <section class="apresentacao">
-    <h1>Arduino Uno</h1>
-    <p>O Arduino Uno é uma placa de prototipagem baseada no microcontrolador ATmega328P. Ideal para iniciantes, ela permite desenvolver projetos de automação, robótica, sensores e mais!</p>
-    <ul>
-      <li>Fácil de programar com Arduino IDE</li>
-      <li>Compatível com diversos sensores</li>
-      <li>Excelente para aprendizado de eletrônica</li>
-    </ul>
-    <a href="index.html" class="botao-materiais">← Voltar</a>
-  </section>
+  <div class="pagina-material">
+    <div class="imagem-material"></div>
+    <div class="info-material">
+      <h1>Arduino</h1>
+
+      <h2>O que é Arduino?</h2>
+      <p>O Arduino é uma plataforma de prototipagem eletrônica de código aberto que combina hardware e software de fácil utilização, sendo amplamente empregada no desenvolvimento de projetos interativos.</p>
+      <p>Criada com o objetivo de democratizar o acesso à eletrônica e à programação, permite que tanto iniciantes quanto profissionais criem sistemas embarcados, realizando a automação de processos através de sensores, atuadores e módulos de comunicação.</p>
+
+      <h2>Estrutura e Funcionamento do Arduino</h2>
+      <p>A plataforma Arduino é composta por dois elementos principais: o hardware (placa de circuito) e o software (IDE - Integrated Development Environment).</p>
+
+      <h3>Hardware</h3>
+      <p>As placas Arduino possuem como núcleo um microcontrolador, responsável pela execução dos programas e pelo controle dos periféricos conectados.</p>
+      <p><strong>Principais Componentes:</strong></p>
+      <ul>
+        <li>Microcontrolador: unidade central de processamento que executa o código carregado.</li>
+        <li>Entradas e Saídas (I/O): permitem a conexão com sensores e atuadores.
+          <ul>
+            <li>Digitais: operam com sinais binários (0 ou 1).</li>
+            <li>Analógicas: leitura de sinais variáveis (geralmente de 0 a 5V).</li>
+          </ul>
+        </li>
+        <li>Alimentação: via cabo USB (5V) ou fonte externa (7V a 12V).</li>
+        <li>Interfaces de Comunicação: UART, I²C e SPI.</li>
+        <li>Outros: reguladores de tensão, osciladores, LEDs, botões de reset.</li>
+      </ul>
+
+      <h3>Software</h3>
+      <p>O Arduino utiliza uma IDE própria, gratuita e de código aberto, que permite:</p>
+      <ul>
+        <li>Escrever códigos em C/C++.</li>
+        <li>Compilar e enviar o código via USB.</li>
+        <li>Monitorar dados em tempo real com o Serial Monitor.</li>
+      </ul>
+
+      <h2>Desenvolvimento de Projetos com Arduino</h2>
+      <ul>
+        <li>1. Definição do problema ou objetivo.</li>
+        <li>2. Seleção de componentes.</li>
+        <li>3. Montagem do circuito.</li>
+        <li>4. Programação.</li>
+        <li>5. Testes e validação.</li>
+        <li>6. Documentação e apresentação.</li>
+      </ul>
+
+      <h2>Componentes Comuns</h2>
+      <ul>
+        <li>Sensores: temperatura (DHT11, LM35), luminosidade (LDR), distância (ultrassônicos).</li>
+        <li>Atuadores: LEDs, motores DC, servomotores, relés.</li>
+        <li>Módulos de comunicação: Bluetooth (HC-05), Wi-Fi (ESP8266), RFID, GPS.</li>
+        <li>Interfaces de exibição: displays LCD, OLED, 7 segmentos.</li>
+      </ul>
+
+      <h2>Vantagens</h2>
+      <ul>
+        <li>Facilidade de uso e aprendizado.</li>
+        <li>Baixo custo.</li>
+        <li>Grande comunidade e documentação.</li>
+        <li>Flexibilidade e expansão com shields.</li>
+        <li>Plataforma aberta.</li>
+      </ul>
+
+      <h2>Desvantagens</h2>
+      <ul>
+        <li>Poder de processamento limitado.</li>
+        <li>Não indicado para aplicações de alto desempenho.</li>
+        <li>Requer noções de eletrônica básica.</li>
+      </ul>
+
+      <h2>Como Usar o Arduino</h2>
+      <p>É necessário uma placa Arduino, cabo USB e o software Arduino IDE. O processo envolve escrever o programa (sketch), configurar a IDE com a placa e porta corretas, compilar e carregar o código, e testar o sistema montado.</p>
+      <p>O código possui duas partes: <code>setup()</code> para configuração inicial, e <code>loop()</code> para execução contínua.</p>
+
+      <h2>Problemas Comuns</h2>
+      <ul>
+        <li>Erros de conexão (fios soltos, pinos errados).</li>
+        <li>Problemas no código.</li>
+        <li>Falta de comunicação com a placa.</li>
+        <li>Defeitos no hardware.</li>
+        <li>Alimentação inadequada.</li>
+        <li>Ruídos nos sinais analógicos.</li>
+        <li>Falta de planejamento do circuito/código.</li>
+      </ul>
+      <p><strong>Dica:</strong> revise conexões, teste o código por partes e use o Monitor Serial para depuração.</p>
+
+      <a href="https://www.arduino.cc/en/Guide" target="_blank">📄 Ver Guia Oficial</a>
+      <br><br>
+      <a href="../index.html">X</a>
+    </div>
+  </div>
 </body>
 </html>

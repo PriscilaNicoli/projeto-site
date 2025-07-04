@@ -34,7 +34,7 @@ header.cabecalho {
 }
 
 .logo {
-  width: 80px;
+  width: 50px;
   height: 80px;
   border-radius: 50%;
 }
@@ -59,33 +59,28 @@ nav ul.menu li a:hover {
 
 /* Banner */
 .banner {
-  margin-top: 2rem;
   text-align: center;
-}
-
-.banner h1 {
-  font-size: 1rem;
-  color: var(--azul-principal);
-  font-weight: 1000;
-}
-
-.banner p {
-  font-size: 2rem;
-  color: var(--azul-secundario);
-  margin-top: 0.5rem;
+  overflow: hidden;
 }
 
 .banner-imgs {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+  position: relative;
 }
 
-.banner-imgs img {
-  max-height: 70px;
-  filter: grayscale(10%) contrast(1.2);
+.banner-imgs img.principal-banner {
+  
+  width: 200%;
+  height: auto;
 }
+
+.banner h1, .banner p {
+  position: relative;
+  z-index: 1;
+  margin-top: -80px; /* ajustável conforme o design */
+  color: #fff; /* se quiser, coloque sombra no texto */
+  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
 
 /* apresentação*/
 .apresentacao {
@@ -193,27 +188,31 @@ nav ul.menu li a:hover {
   margin-bottom: 1rem;
 }
 
-.botao-materiais {
-  background-color: #1a3b6b;
-  border-radius: 30px;
-}
-
 .botao-detalhes {
-  background-color: #1a3b6b;
-  border-radius: 30px;
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: var(--azul-secundario);
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 10px;
 }
 
-.botao-detalhes:hover,
-.botao-materiais:hover {
+.botao-detalhes:hover {
   background-color: var(--azul-hover);
 }
 /*Titulos dos materiais */
-.titulo-secao {
-  color: #0055aa;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+.titulo-material {
+  color: #1a2a57;
+  margin: 0rem;
 }
-
+.titulo-secao {
+  color: #0a2e53;
+  font-size: 1.5rem;
+  margin: 1.5rem;
+}
 
 /* Seção vídeo */
 .secao-video {
