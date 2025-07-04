@@ -21,6 +21,8 @@ body {
   background-color: var(--azul-claro);
   color: var(--cinza-texto);
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 /* Cabeçalho */
@@ -35,8 +37,8 @@ header.cabecalho {
 
 .logo {
   width: 50px;
-  height: 80px;
-  border-radius: 50%;
+  height: 100px;
+  border-radius: 100%;
 }
 
 nav ul.menu {
@@ -61,6 +63,8 @@ nav ul.menu li a:hover {
 .banner {
   text-align: center;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .banner-imgs {
@@ -68,10 +72,11 @@ nav ul.menu li a:hover {
 }
 
 .banner-imgs img.principal-banner {
-  
-  width: 200%;
+  width: 100%;
   height: auto;
+  display: block;
 }
+
 
 .banner h1, .banner p {
   position: relative;
