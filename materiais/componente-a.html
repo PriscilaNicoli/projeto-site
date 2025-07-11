@@ -3,115 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arduino - Introdução</title>
-  <link rel="stylesheet" href="../style.css" />
+  <title>Arduino Uno - Introdução</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-    }
-
-    .pagina-material {
-      display: flex;
-      flex-wrap: wrap;
-      min-height: 100vh;
-      padding: 2rem;
-      gap: 2rem;
-      align-items: flex-start;
-      justify-content: center;
-    }
-
-    .imagem-material {
-      flex: 1;
-      max-width: 600px;
-      height: auto;
-      aspect-ratio: 16 / 9;
-      background-image: url('arduino-imagem.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      border: 1px solid #ddd;
-    }
-
-    .info-material {
-      flex: 1;
-      max-width: 600px;
-      background-color: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      overflow-y: auto;
-      max-height: 90vh;
-    }
-
-    .info-material h1 {
-      color: #1a3b6b;
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .info-material h2 {
-      font-size: 1.4rem;
-      color: #007acc;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .info-material p, .info-material li {
-      font-size: 1.1rem;
+      background-color: #ced6e0;
+      color: #222;
       line-height: 1.6;
-      margin-bottom: 1rem;
     }
 
-    .info-material ul {
-      margin-left: 1.5rem;
-      list-style-type: disc;
+    .cabecalho {
+      position: relative;
+      padding: 30px 20px;
+      background-color: #6d9aef5c;
     }
 
-    .info-material a {
-      display: inline-block;
-      margin: 0.4rem 1rem 0.4rem 0;
-      padding: 0.7rem 1.2rem;
-      background-color: #007acc;
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .logo-container img {
+      width: 150px;
+      height: auto;
+    }
+
+    .titulo-container h1 {
+      font-size: 2.9rem;
+      color: #0c478b;
+      margin: 0;
+      font-weight: 800;
+    }
+
+    .titulo-container p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-top: 8px;
+    }
+
+    .botao-voltar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #4f657d;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
+      font-size: 1.5rem;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
     }
 
-    .info-material a:hover {
-      background-color: #005fa3;
+    .botao-voltar:hover {
+      background-color: #063366;
     }
 
-    .info-material a:last-of-type {
-      margin-top: 1.5rem;
-      background-color: transparent;
-      color: #007acc;
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
     }
 
-    .info-material a:last-of-type:hover {
-      text-decoration: underline;
+    .intro-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      text-align: justify;
+      margin-bottom: 30px;
+      gap: 30px;
+    }
+
+    .intro-section img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-beside-image {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .content {
+      margin-top: 30px;
+    }
+
+    h2 {
+      color: #0c478b;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: #11476b;
+      margin-top: 1.4rem;
+    }
+
+    ul, ol {
+      margin: 0 0 1em 1.5em;
+    }
+
+    p, li {
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    iframe, video {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .intro-section {
+        flex-direction: column;
+      }
+
+      video, iframe {
+        height: 250px;
+      }
+    }
+
+    .video-estilizado {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      margin: 15px auto 0 auto;
+      display: block;
+      background-color: #e0eaf5;
+      height: auto; /* Adicione isso */
+      object-fit: cover; /* Opcional, para ajustar melhor */
+    }
+
+    video.video-estilizado {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+
+    .botao-guia {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #0c478b;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .botao-guia:hover {
+      background-color: #063366;
+      transform: scale(1.03);
     }
   </style>
 </head>
-<body>
-  <div class="pagina-material">
-    <div class="imagem-material"></div>
-    <div class="info-material">
-      <h1>Arduino</h1>
 
-      <h2>O que é Arduino?</h2>
+<body>
+<header class="cabecalho">
+  <a href="/index.html" class="botao-voltar" title="Voltar à página principal">&#8592;</a>
+  <div class="logo-container">
+    <img src="logo-arduino.png" alt="Logo Arduino Uno" />
+    <div class="titulo-container">
+      <h1>Arduino Uno</h1>
+      <p>Conheça seus componentes, usos e como começar</p>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <section class="intro-section">
+    <img src="arduino-imagem.png" alt="Imagem do Arduino Uno">
+    <div class="text-beside-image">
+      <h2>O que é o Arduino Uno?</h2>
       <p>O Arduino é uma plataforma de prototipagem eletrônica de código aberto que combina hardware e software de fácil utilização, sendo amplamente empregada no desenvolvimento de projetos interativos.</p>
       <p>Criada com o objetivo de democratizar o acesso à eletrônica e à programação, permite que tanto iniciantes quanto profissionais criem sistemas embarcados, realizando a automação de processos através de sensores, atuadores e módulos de comunicação.</p>
+    </div>
+  </section>
+
+  <div class="content">
 
       <h2>Estrutura e Funcionamento do Arduino</h2>
       <p>A plataforma Arduino é composta por dois elementos principais: o hardware (placa de circuito) e o software (IDE - Integrated Development Environment).</p>
@@ -120,18 +213,14 @@
       <p>As placas Arduino possuem como núcleo um microcontrolador, responsável pela execução dos programas e pelo controle dos periféricos conectados.</p>
       <p><strong>Principais Componentes:</strong></p>
       <ul>
-        <li>Microcontrolador: unidade central de processamento que executa o código carregado.</li>
-        <li>Entradas e Saídas (I/O): permitem a conexão com sensores e atuadores.
-          <ul>
-            <li>Digitais: operam com sinais binários (0 ou 1).</li>
-            <li>Analógicas: leitura de sinais variáveis (geralmente de 0 a 5V).</li>
-          </ul>
-        </li>
-        <li>Alimentação: via cabo USB (5V) ou fonte externa (7V a 12V).</li>
-        <li>Interfaces de Comunicação: UART, I²C e SPI.</li>
-        <li>Outros: reguladores de tensão, osciladores, LEDs, botões de reset.</li>
-      </ul>
-
+        <p><strong>Microcontrolador:</strong> unidade central de processamento que executa o código carregado.</p>
+        <p><strong>Entradas e Saídas (I/O):</strong> permitem a conexão com sensores e atuadores.</p>
+        <p><strong>Digitais:</strong> operam com sinais binários (0 ou 1).</p>
+        <p><strong>Analógicas:</strong> leitura de sinais variáveis (geralmente de 0 a 5V).</p>
+        <p><strong>Alimentação:</strong> via cabo USB (5V) ou fonte externa (7V a 12V).</p>
+        <p><strong>Interfaces de Comunicação:</strong> UART, I²C e SPI.</p>
+        <p><strong>Outros:</strong> reguladores de tensão, osciladores, LEDs, botões de reset.</p>
+      </ul>  
       <h3>Software</h3>
       <p>O Arduino utiliza uma IDE própria, gratuita e de código aberto, que permite:</p>
       <ul>
@@ -141,24 +230,29 @@
       </ul>
 
       <h2>Desenvolvimento de Projetos com Arduino</h2>
-      <ul>
-        <li>1. Definição do problema ou objetivo.</li>
-        <li>2. Seleção de componentes.</li>
-        <li>3. Montagem do circuito.</li>
-        <li>4. Programação.</li>
-        <li>5. Testes e validação.</li>
-        <li>6. Documentação e apresentação.</li>
-      </ul>
+      <p class="introducao-desenvolvimento">O desenvolvimento de projetos com Arduino segue uma sequência lógica de etapas que permite transformar uma ideia em uma solução funcional. Cada fase é importante para garantir que o sistema final seja confiável, eficiente e bem documentado. Abaixo estão os principais passos que compõem esse processo:</hp>
+      <p class="etapa"><strong> 1. Definição do problema ou objetivo.</strong></p>
+        <p class="descricao">Nessa etapa inicial, identifica-se claramente qual é a necessidade ou desafio a ser resolvido. Pode ser algo como automatizar uma tarefa, coletar dados ambientais ou controlar dispositivos remotamente. Um bom projeto começa com um objetivo bem definido.</p>
+      <p class="etapa"><strong>2. Seleção de componentes.</strong></p>
+        <p class="descricao">Com o objetivo em mente, são escolhidos os sensores, atuadores, módulos e outros componentes eletrônicos que serão necessários. A seleção depende diretamente das funcionalidades desejadas e das limitações do projeto, como orçamento ou espaço físico.</p>
+      <p class="etapa"><strong>3. Montagem do circuito.</strong></p>
+        <p class="descricao">Os componentes são organizados e conectados sobre uma protoboard ou em uma placa personalizada, seguindo um esquema elétrico. É importante garantir conexões firmes e seguras para evitar falhas futuras.</p>
+      <p class="etapa"><strong>4. Programação.</strong></p>
+        <p class="descricao">Nessa fase, desenvolve-se o código que será carregado no Arduino. Ele define o comportamento do sistema: leitura de sensores, controle de atuadores, lógica de decisão, comunicação com outros dispositivos, entre outros.</p>
+      <p class="etapa"><strong>5. Testes e validação.</strong></p>
+        <p class="descricao">O circuito é testado para verificar se tudo está funcionando como planejado. Erros são identificados e corrigidos nessa fase. Também é possível fazer ajustes finos no código ou nos componentes físicos para melhorar a performance.</p>
+      <p class="etapa"><strong>6. Documentação e apresentação</strong></p>
+        <p class="descricao">Por fim, registra-se todo o processo: o objetivo, os componentes utilizados, o diagrama do circuito, o código-fonte e os resultados obtidos. Essa documentação é essencial para futuras manutenções, replicações do projeto ou apresentações acadêmicas e profissionais.</p>
 
       <h2>Componentes Comuns</h2>
       <ul>
-        <li>Sensores: temperatura (DHT11, LM35), luminosidade (LDR), distância (ultrassônicos).</li>
-        <li>Atuadores: LEDs, motores DC, servomotores, relés.</li>
-        <li>Módulos de comunicação: Bluetooth (HC-05), Wi-Fi (ESP8266), RFID, GPS.</li>
-        <li>Interfaces de exibição: displays LCD, OLED, 7 segmentos.</li>
+        <li><strong>Sensores:</strong> temperatura (DHT11, LM35), luminosidade (LDR), distância (ultrassônicos).</li>
+        <li><strong>Atuadores:</strong> LEDs, motores DC, servomotores, relés.</li>
+        <li><strong>Módulos de comunicação:</strong> Bluetooth (HC-05), Wi-Fi (ESP8266), RFID, GPS.</li>
+        <li><strong>Interfaces de exibição:</strong> displays LCD, OLED, 7 segmentos.</li>
       </ul>
 
-      <h2>Vantagens</h2>
+      <h2>Vantagens de usar do Arduino</h2>
       <ul>
         <li>Facilidade de uso e aprendizado.</li>
         <li>Baixo custo.</li>
@@ -167,7 +261,7 @@
         <li>Plataforma aberta.</li>
       </ul>
 
-      <h2>Desvantagens</h2>
+      <h2>Desvantagens do Arduino</h2>
       <ul>
         <li>Poder de processamento limitado.</li>
         <li>Não indicado para aplicações de alto desempenho.</li>
@@ -190,10 +284,18 @@
       </ul>
       <p><strong>Dica:</strong> revise conexões, teste o código por partes e use o Monitor Serial para depuração.</p>
 
-      <a href="https://www.arduino.cc/en/Guide" target="_blank">📄 Ver Guia Oficial</a>
-      <br><br>
-      <a href="../index.html">X</a>
-    </div>
+      <a href="https://www.arduino.cc/en/Guide" target="_blank" rel="noopener noreferrer" class="botao-guia">📄 Ver Guia Oficial</a>
+    </section>
+
+
+    <h2>Vídeo Explicativo</h2>
+    <p>Assista ao vídeo abaixo para uma introdução prática ao Arduino Uno.</p>
+    <video class="video-estilizado" controls poster="arduino-capa-video.png">
+      <source src="Arduino.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo HTML5.
+    </video>
   </div>
+</div>
+
 </body>
 </html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Materiais do Vídeo: Montagem do Robô</title>
+  <style>
+    :root {
+      --azul-claro: #eaf4ff;
+      --azul-principal: #204080;
+      --azul-destaque: #4776d0;
+      --cinza-texto: #2f2f2f;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--azul-claro);
+      color: var(--cinza-texto);
+      margin: 0;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.4em;
+      color: var(--azul-principal);
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      color: var(--azul-destaque);
+      font-size: 1.4em;
+      margin-bottom: 12px;
+    }
+
+    section p, section ul {
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .dica {
+      background-color: #d7eaff;
+      border-left: 4px solid var(--azul-destaque);
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <section>
+   <h2>🎯 O que é esse projeto?</h2>
+    <p>O Jogo de Equilíbrio com Bolinha é um brinquedo científico baseado em Arduino. O objetivo é inclinar uma rampa controlando dois servomotores para manter uma esfera metálica no centro da estrutura.</p>
+    <p>O jogador utiliza um joystick analógico para controlar a inclinação da rampa em dois eixos (X e Y). A base é feita com papelão rígido, montado manualmente com cola e peças cortadas.</p>
+
+  <h3>✅ Objetivos</h3>
+  <ul>
+    <li>Estimular o pensamento lógico e o raciocínio espacial.</li>
+    <li>Trabalhar conceitos de eletrônica básica e controle via servo motor.</li>
+    <li>Proporcionar uma experiência prática de prototipagem com Arduino.</li>
+    <li>Desenvolver coordenação motora e controle fino.</li>
+    <li>Introduzir noções de automação e interação humano-máquina.</li>
+  </ul>
+
+  <h3>🧰 Materiais Necessários</h3>
+  <h4>Estrutura</h4>
+  <ul>
+    <li>Papelão (placas de 3mm ou similar)</li>
+    <li>Estilete</li>
+    <li>Régua</li>
+    <li>Cola quente ou fita dupla face</li>
+  </ul>
+
+  <h4>Componentes Eletrônicos</h4>
+  <ul>
+    <li>1 Placa Arduino UNO</li>
+    <li>2 Servomotores SG90</li>
+    <li>1 Joystick analógico</li>
+    <li>Protoboard pequena</li>
+    <li>Jumpers (fios macho-macho)</li>
+    <li>1 bolinha metálica (de rolamento, por exemplo)</li>
+  </ul>
+
+  <h3>✂️ Montagem da Estrutura</h3>
+  <p>As peças devem ser cortadas conforme as medidas abaixo:</p>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Peça</th>
+        <th>Medida (cm)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Base</td><td>17,5 x 15,5</td></tr>
+      <tr><td>Tampa</td><td>20 x 18</td></tr>
+      <tr><td>Frente da base</td><td>17,5 x 3</td></tr>
+      <tr><td>Laterais da base (x2)</td><td>15 x 3</td></tr>
+      <tr><td>Arco para suporte do servo</td><td>10 x 3,5</td></tr>
+      <tr><td>Base inferior da rampa</td><td>15 x 3</td></tr>
+      <tr><td>Laterais da rampa (x2)</td><td>15 x 2,5</td></tr>
+      <tr><td>Suporte para joystick</td><td>4 x variável</td></tr>
+    </tbody>
+  </table>
+
+  <h4>📸 Fotos</h4>
+  <p>📸 INSERIR AQUI A FOTO 1 (estrutura lateral da rampa)</p>
+  <p>📸 INSERIR AQUI A FOTO 2 (base do projeto com servo encaixado)</p>
+  <p>📸 INSERIR AQUI A FOTO 3 (imagem com todas as peças e medidas)</p>
+
+  <h3>⚙️ Montagem Eletrônica</h3>
+  <h4>Conexões do Joystick:</h4>
+  <ul>
+    <li>VRx → A0</li>
+    <li>VRy → A1</li>
+    <li>GND → GND</li>
+    <li>VCC → 5V</li>
+  </ul>
+
+  <h4>Conexões dos Servos:</h4>
+  <ul>
+    <li>Servo X (eixo lateral) → pino 9</li>
+    <li>Servo Y (eixo frontal) → pino 10</li>
+    <li>Ambos → 5V / GND</li>
+  </ul>
+
+  <h3>💻 Código Arduino</h3>
+  <pre><code class="language-cpp">
+#include &lt;Servo.h&gt;
+
+Servo servoX;
+Servo servoY;
+
+int joyX = A0;
+int joyY = A1;
+
+void setup() {
+  servoX.attach(9);
+  servoY.attach(10);
+}
+
+void loop() {
+  int xVal = analogRead(joyX);
+  int yVal = analogRead(joyY);
+
+  int posX = map(xVal, 0, 1023, 0, 180);
+  int posY = map(yVal, 0, 1023, 0, 180);
+
+  servoX.write(posX);
+  servoY.write(posY);
+
+  delay(15);
+}
+  </code></pre>
+  <p>Esse código traduz os valores analógicos do joystick em posições para os dois servos, inclinando a plataforma.</p>
+
+  <h3>🧪 Conceitos Científicos Envolvidos</h3>
+  <ul>
+    <li><strong>Centro de massa e equilíbrio:</strong> a esfera responde à gravidade com base na inclinação.</li>
+    <li><strong>Sinais analógicos e PWM:</strong> o joystick envia sinais contínuos, convertidos em ângulos para os servos.</li>
+    <li><strong>Prototipagem eletrônica:</strong> uso do Arduino para controle de hardware em tempo real.</li>
+    <li><strong>Interação homem-máquina:</strong> o jogador age como parte do sistema de controle do brinquedo.</li>
+  </ul>
+
+  <h3>🧩 Aplicações e Dicas</h3>
+  <ul>
+    <li>Pode ser usado em aulas de Física, Matemática, Computação ou Robótica.</li>
+    <li>Adicione obstáculos ou sensores para aumentar a complexidade.</li>
+    <li>Combine com cronômetro e pontuação para gamificar o desafio.</li>
+    <li>Compare o desempenho humano com uma versão automatizada futura.</li>
+  </ul>
+
+  <h3>📚 Conclusão</h3>
+  <p>Este brinquedo alia inovação, baixo custo e interdisciplinaridade. Ele proporciona uma introdução prática à robótica e à computação física, ao mesmo tempo em que estimula a criatividade, o raciocínio lógico e o interesse por tecnologias.</p>
+  <p>Seu uso em escolas públicas com recursos limitados reforça a proposta de democratizar o acesso ao conhecimento científico e incentivar mais jovens — especialmente meninas — a explorarem a área de tecnologia.</p>
+</section>
+
+</body>
+</html>
